@@ -11,13 +11,11 @@
     "progress": "true"
   },
   "dependencies": {
-    "aws-sdk": "^2.4.0",
-    "https": "^1.0.0",
     "lodash": "^4.15.0",
-    "url": "^0.11.0"
+    "flat": "^5.0.2"
   },
   "devDependencies": {
-    "node-lambda": "0.16.0"
+    "node-lambda": "0.21.0"
   },
   "keywords": [
     "aws",

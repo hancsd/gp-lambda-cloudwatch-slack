@@ -3,6 +3,7 @@ var url = require('url');
 var https = require('https');
 var config = require('./config');
 var _ = require('lodash');
+var flatten = require('flat');
 var hookUrl;
 
 var baseSlackMessage = {}
@@ -327,13 +328,14 @@ var handleCatchAll = function(event, context) {
 
     // Add all of the values from the event message to the Slack message description
     var description = ""
+    message = flatten(message);
     for(key in message) {
 
         var renderedMessage = typeof message[key] === 'object'
                             ? JSON.stringify(message[key])
                             : message[key]
 
-        description = description + "\n" + key + ": " + renderedMessage
+        description = description + "\n" + "*" + key + "*" + ": " + renderedMessage
     }
 
     var slackMessage = {
